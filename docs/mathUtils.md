@@ -7,14 +7,19 @@
 Calculates the square of a given number.
 
 #### Parameters
-Name | Type | Description | 
----- | ---- | ----------- |
-`num`| `number` | The number to be squared.
+| Name | Type | Description | 
+| ---- | ---- | ----------- |
+| `num`| `number` | The number to be squared. |
 
 #### Returns
-Type | Description
----- | -----------
-`TypeError` | Throws an input if the input is not a number.
+| Type | Description |
+| ---- | ----------- |
+| `number` | The square of the number. |
+
+#### Throws
+| Type | Description |
+| ---- | ----------- |
+| `TypeError` | Throws an error if the input is not a number. |
 
 #### Examples
 
@@ -30,4 +35,3 @@ try {
 }
 ```
 --------------
-
