@@ -35,3 +35,38 @@ try {
 }
 ```
 --------------
+
+### `cubed(num)`
+
+Calculates the cube of a given number.
+
+#### Parameters
+| Name | Type | Description | 
+| ---- | ---- | ----------- |
+| `num`| `number` | The number to be cubed. |
+
+#### Returns
+| Type | Description |
+| ---- | ----------- |
+| `number` | The cube of the number. |
+
+#### Throws
+| Type | Description |
+| ---- | ----------- |
+| `TypeError` | Throws an error if the input is not a number. |
+
+#### Examples
+
+```javascript
+const { cubed } = require('./src/mathUtils.js');
+
+console.log(cubed(4)); // Output: 64
+
+try {
+    console.log(cubed('hello'));
+} catch (error) {
+    console.error(error.message);
+}
+```
+--------------
+
