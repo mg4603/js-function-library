@@ -1,4 +1,4 @@
-const { squared, cubed } = require("../src/mathUtils.js");
+const { squared, cubed } = require("./mathUtils.js");
 
 describe('squared', ()=> {
     test('should return the square of a positive number', () => {
