@@ -1,4 +1,4 @@
-const { squared, cubed, factorial } = require("./mathUtils.js");
+const { squared, cubed, factorial, random } = require("./mathUtils.js");
 
 describe('squared', ()=> {
     test('should return the square of a positive number', () => {
@@ -54,7 +54,7 @@ describe('factorial', () => {
     test('factorial of positive integer', () => {
         expect(factorial(5)).toBe(120);
     });
-    test('should throw a TypeError when input iis not a number', () => {
+    test('should throw a TypeError when input is not a number', () => {
         expect(() => factorial('a')).toThrow(TypeError);
         expect(() => factorial(null)).toThrow(TypeError);
         expect(() => factorial(undefined)).toThrow(TypeError);
@@ -62,3 +62,32 @@ describe('factorial', () => {
         expect(() => factorial({})).toThrow(TypeError);
     })
 })
+
+describe('random', () => {
+    test('should throw a TypeError when input is not a number', () => {
+        expect(() => random('a')).toThrow(TypeError);
+        expect(() => random(null)).toThrow(TypeError);
+        expect(() => random(undefined)).toThrow(TypeError);
+        expect(() => random([])).toThrow(TypeError);
+        expect(() => random({})).toThrow(TypeError);
+    });
+
+    test('should throw a RangeError when input is <= 0', () => {
+        expect(() => random(0)).toThrow(RangeError);
+        expect(() => random(-5)).toThrow(RangeError);
+    });
+
+    // range validation
+    test('should return a number within the range [0, num)', () => {
+        const num = 10;
+        const result = random(10);
+        expect(result).toBeGreaterThanOrEqual(0);
+        expect(result).toBeLessThan(num);
+    });
+
+    test('should return an integer', () => {
+        const num = 10;
+        const result = random(num);
+        expect(Number.isInteger(result)).toBe(true);
+    });
+});
