@@ -105,3 +105,33 @@ try {
 ```
 --------------
 
+### `random(num)`
+
+Returns a random integer greater than or equal to zero and lesser than num.
+
+#### Params
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `num` | `number` | The number less than which the random number should be. |
+
+#### Returns
+| Type | Description |
+| ---- | ----------- |
+| `number` | A random integer greater than or equal to zero and less than input. |
+
+#### Throws
+| Type | Description |
+| ---- | ----------- |
+| `TypeError` | Throws an error if the input is not a number. |
+| `RangeError` | Throws an error if the input is less than or equal to zero.
+
+#### Examples
+
+``` javascript
+const { random } = require('./mathUtils.js');
+
+console.log(random(10)); //Output: a random integer >= 0 and < 10
+console.log(random(100)); //Output: a random integer >= 0 and < 100
+```
+
+
