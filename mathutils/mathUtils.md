@@ -133,5 +133,38 @@ const { random } = require('./mathUtils.js');
 console.log(random(10)); //Output: a random integer >= 0 and < 10
 console.log(random(100)); //Output: a random integer >= 0 and < 100
 ```
+-----
 
+### `randomBetween(start, end)`
 
+Return a random integer greater than or equal to start and less than end.
+
+#### Params
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `start` | `number` | The number that the random number returned should be greater than or equal to. |
+| `end` | `number` | The number that the random number returned should be less than. |
+
+#### Returns
+| Type | Description |
+| ---- | ----------- |
+| `number` | A random integer greater than or equal to start and less than end. |
+
+#### Throws
+| Type | Description |
+| ---- | ----------- |
+| `TypeError` | Throws TypeError if either start or end are not numbers. |
+| `RangeError` | Throws RangeError if start >= end. |
+
+#### Examples
+```javascript
+const { randomBetween }  = require('./mathUtils.js');
+
+console.log(randomBetween(5, 10)); //Output: an integer >= 5 and < 10
+
+try {
+    console.log(randomBetween(15, 10)); 
+} catch(error) {
+    console.log(error.message); // Output: Start must be less than end
+}
+```
