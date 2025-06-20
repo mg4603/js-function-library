@@ -1,4 +1,4 @@
-const { squared, cubed, factorial, random } = require("./mathUtils.js");
+const { squared, cubed, factorial, random, randomBetween } = require("./mathUtils.js");
 
 describe('squared', ()=> {
     test('should return the square of a positive number', () => {
@@ -91,3 +91,29 @@ describe('random', () => {
         expect(Number.isInteger(result)).toBe(true);
     });
 });
+
+describe('randomBetween', () => {
+    test('should throw a TypeError if start(param) is not a number', () => {
+        expect(() => randomBetween('a', 15)).toThrow(TypeError);
+        expect(() => randomBetween(null, 15)).toThrow(TypeError);
+        expect(() => randomBetween(undefined, 15)).toThrow(TypeError);
+        expect(() => randomBetween([], 15)).toThrow(TypeError);
+        expect(() => randomBetween({}, 15)).toThrow(TypeError);
+    });
+
+    test('shoud throw a RangeError if start(param) is greater than or equal to end', () => {
+        expect(() => randomBetween(10, 10)).toThrow(RangeError);
+        expect(() => randomBetween(11, 10)).toThrow(RangeError);
+    });
+
+    test('should returrn an integer', () => {
+        const result = randomBetween(5, 10);
+        expect(Number.isInteger(result)).toBe(true);
+    });
+
+    test('should return a number within the range [start, end)', () => {
+        const result = randomBetween(-15, -10);
+        expect(result).toBeGreaterThanOrEqual(-15);
+        expect(result).toBeLessThan(-10);
+    })
+})
