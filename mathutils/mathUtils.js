@@ -41,4 +41,15 @@ function random(num) {
     return Math.floor(Math.random() * num);
 }
 
-module.exports = { squared, cubed, factorial, random };
+function randomBetween(start, end) {
+    if (typeof start != 'number' || typeof end != 'number') {
+        throw new TypeError('Both start and end must be numbers');
+    }
+    if (start >= end) {
+        throw new RangeError('Start must be less than end');
+    }
+    const range = end - start;
+    return Math.floor(Math.random() * range) + start;
+}
+
+module.exports = { squared, cubed, factorial, random, randomBetween };
